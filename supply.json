@@ -40,8 +40,18 @@
     }
   ],
   "parameters": [],
-  "tests": [],
+  "tests": [
+    {
+      "file": "signals.json",
+      "inputs": {
+        "query": "query",
+        "template": "template"
+      }
+    }
+  ],
   "supplies": {},
-  "breadcrumbs": {},
+  "breadcrumbs": {
+    "dtw": "."
+  },
   "path": "./dms_supplies"
 }
