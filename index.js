@@ -1,23 +1,47 @@
 module.exports = {
-  /*
-   *  $main is the required default mining function that will be called
-   *  via a miners default endpoint, and node.js mine() function.
-   *  The core of your supply logic should go here.
-   */
   $main: function($, data, config, callback){
-    /*
-     *  $:        an internal stateless storage object and holds any miners and
-     *            injected attributes from the $inject() function
-     *
-     *  data:     the incoming data as a JSON object
-     *
-     *  config:   object containing connected input names and parameter values
-     *
-     *  callback: function for completing the processing of this data point.
-     *            Use the first parameter for errors and the second as an object
-     *            for output data - callback(err, outputs);
-     */
+    function dtw(n, m) {
+      // get lengths of n, m
+      var nLength = n.length;
+      var mLength = m.length;
 
-    return callback(null, data);
+      // create memoization table with initializers
+      var memo = [];
+
+      for (var i = 0; i <= nLength; i++) {
+        memo[i] = [];
+
+        for (var j = 0; j <= mLength; j++) {
+          if (i === 0 && j === 0) {
+            memo[i][j] = 0;
+          } else if (j === 0 || i === 0) {
+            memo[i][j] = 1e+100;
+          } else {
+            memo[i][j] = 0;
+          }
+        }
+      }
+
+      // fill in memoization table
+      for (var k = 1; k <= nLength; k ++) {
+        for (var l = 1; l <= mLength; l++) {
+          var cost = Math.abs(n[k - 1] - m[l - 1]);
+
+          memo[k][l] = cost + Math.min(memo[k - 1][l],
+                                       memo[k][l - 1],
+                                       memo[k - 1][l - 1]);
+        }
+      }
+
+      // return signal dissimilarity
+      return memo[nLength][mLength];
+    }
+
+    // compute and return dtw dissimilarity
+    var output = {
+      similarity: dtw(data.query, data.template)
+    };
+
+    return callback(null, output);
   }
 };
