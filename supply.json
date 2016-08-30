@@ -1,0 +1,47 @@
+{
+  "name": "dtw",
+  "description": "Implementation of dynamic time warping for signal similarity",
+  "version": "1.0.0",
+  "scope": "kapow",
+  "script": "index.js",
+  "repository": "https://github.com/dataminingsupply/dtw",
+  "license": {
+    "type": "MIT",
+    "year": 2016,
+    "copyright": "Kapil Garg"
+  },
+  "public": true,
+  "tags": [
+    "dynamic",
+    "time",
+    "warping",
+    "signal",
+    "similarity"
+  ],
+  "thumbnail": "dtw.png",
+  "inputs": [
+    {
+      "name": "query",
+      "type": "array",
+      "description": "Array representing numeric signal query signal to determine similarity of."
+    },
+    {
+      "name": "template",
+      "type": "array",
+      "description": "Array representing numeric template signal to compare against."
+    }
+  ],
+  "outputs": [
+    {
+      "name": "similarity",
+      "type": "number",
+      "description": "Minimum distance between alignment of query and template.",
+      "default": 0
+    }
+  ],
+  "parameters": [],
+  "tests": [],
+  "supplies": {},
+  "breadcrumbs": {},
+  "path": "./dms_supplies"
+}
