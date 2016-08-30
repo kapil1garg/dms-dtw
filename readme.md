@@ -1,4 +1,4 @@
-Dynamic Time Warping ([DTW](https://en.wikipedia.org/wiki/Dynamic_time_warping)) is a dynamic programming algorithm for computing similarity between two temporal signals which may differ in speed. The algorithm finds the optimal, non-linear alignment of two input signals and returns a numeric difference for how dissimilar they are.
+[Dynamic Time Warping](https://en.wikipedia.org/wiki/Dynamic_time_warping) (DTW) is a dynamic programming algorithm for computing similarity between two temporal signals which may differ in speed. The algorithm finds the optimal, non-linear alignment of two input signals and returns a numeric difference for how dissimilar they are.
 
 
 ***
