@@ -1,7 +1,7 @@
 {
   "name": "dtw",
   "description": "Implementation of dynamic time warping for signal similarity",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scope": "kapow",
   "script": "index.js",
   "repository": "https://github.com/dataminingsupply/dtw",
